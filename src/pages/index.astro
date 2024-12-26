@@ -13,15 +13,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<main>
+		<main style="max-width: 1400px;">
 			<Block imgUrl='./main_photo.png'>
 				<Header />
 				<div class="blockContent">
-					<h2 class="title titleContent">Волшебной таблетки не было, но мы её сделали</h2>
-					<p class="subtitleContent text">Превратили витамины, минералы и аминокислоты во вкусныеи работающие напитки, которые укрепляют здоровье и дают ощутимый заряд энергии. А еще тут мармеладные медведи для твоих бадди.</p>
+					<h2 class="title titleContent">Волшебной таблетки не&nbsp;было, но&nbsp;мы&nbsp;её&nbsp;сделали</h2>
+					<p class="subtitleContent text">Превратили витамины, минералы и&nbsp;аминокислоты во&nbsp;вкусныеи работающие напитки, которые укрепляют здоровье и&nbsp;дают ощутимый заряд энергии. А&nbsp;еще тут мармеладные медведи для твоих бадди.</p>
 				</div>
 			</Block>
-
+			<div style="margin-top: 3em; display: flex; justify-content: center;">
+				<img src="./secondInfo.png" />
+			</div>
+			<div style="margin-top: 3em;" />
 			<Block imgUrl='./main_photo_2.png'>
 				<div style="padding-top: 20em;">
 					<h3 class="revertedTitle">
@@ -31,25 +34,27 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					</h2>
 				</div>
 			</Block>
-			<div class="productContent">
+			<div style="margin-top: 3em;" class="productContent">
 				<div class="cards">
 					<ProductCard
 						imgUrl='./productImage.png'
-						url='./product/123'
+						url='./product/1'
 						title='Multi Complex'
 						text='Витаминно-минеральный комплекс для ежедневных потребностей организма'
 						bullets={['капсулы', 'витамины']}
 					/>
 					<ProductCard
 						imgUrl='./productImage.png'
-						url='./product/123'
-						title='Multi Complex'
-						text='Витаминно-минеральный комплекс для ежедневных потребностей организма'
-						bullets={['капсулы', 'витамины']}
+						url='./product/2'
+						title='Multi Complex 2'
+						text='Витаминно-минеральный комплекс для новых потребностей организма'
+						bullets={['бадик', 'в садик']}
 					/>
 				</div>
 				<div class="buyNowContent">
+					<a href="https://ozon.ru">
 					<img src="./buy_now.png" />
+					</a>
 				</div>
 			</div>
 		</main>
@@ -70,7 +75,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			display: flex;
 			align-items: center;
 			flex-direction: column;
-			padding: 0 7em;
+			padding: 0 14em;
 		}
 		.titleContent {
 			padding-top: 7em;
