@@ -1,0 +1,74 @@
+---
+interface Props {
+	imgUrl: string;
+    url: string;
+    title: string;
+    text: string;
+    bullets: string[];
+}
+
+const { url, imgUrl, title, text, bullets} = Astro.props;
+---
+
+<div class="main">
+    <img src={imgUrl}/>
+    <div class="bullets">
+        {
+            bullets.map(bullet => (
+                <div class="bullet">{bullet}</div>
+            ))
+        }
+    </div>
+    <div style="margin-top: 20px;" class="title">{title}</div>
+    <div class="text">{text}</div>
+    <a class="centered" href={url}>
+        <p class="info subTitle">Подбробнее</p>
+    </div>
+</div>
+<style>
+    .centered {
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
+    .title {
+        font-weight: 400;
+        font-size: 46px;
+        line-height: 100%;
+        letter-spacing: -0.04em;
+        color: #3f1a05;
+    }
+    .subTitle {
+        color: #000;
+        font-size: 22px;
+    }
+    .text {
+        font-weight: 400;
+        font-size: 16px;
+        color: #000;
+    }
+    .info {
+        padding: 5px 40px;
+        border: 2px solid #381e12;
+    }
+
+    .bullets {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .bullet {
+        content: flex;
+        border: 1px solid #000;
+        border-radius: 60px;
+        padding: 0px 10px 2px 10px;
+        margin-right: 8px;
+    }
+
+	.main {
+        width: 45%;
+		display: flex;
+        flex-direction: column;
+        color: #381e12;
+	}
+</style>

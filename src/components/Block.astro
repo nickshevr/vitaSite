@@ -1,11 +1,17 @@
 ---
+interface Props {
+	imgUrl: string;
+}
+
+const { imgUrl } = Astro.props;
 ---
 
-<div class="main">
+<div class="main" style=`background-image: url(${imgUrl});`>
     <slot />
 </div>
 <style>
-	main {
+	.main {
 		width: 100%;
+        background-size: cover;
 	}
 </style>

@@ -1,26 +1,19 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
 ---
 
 <header>
 	<nav>
 		<img src="main-logo.svg" />
-		<div class="internal-links">
-			<HeaderLink href="/blog">Продукты</HeaderLink>
-			<HeaderLink href="/about">База знаний</HeaderLink>
+		<div style="padding-left: 0.5em;">
+			<HeaderLink href="/products">Продукты</HeaderLink>
 		</div>
 	</nav>
 </header>
 <style>
 	header {
 		margin: 0;
-		padding: 0 1em;
 		background: transparent;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
 	}
 
 	h2 a,
@@ -28,23 +21,13 @@ import { SITE_TITLE } from '../consts';
 		text-decoration: none;
 	}
 	nav {
+		padding: 1em;
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
+		align-items: center;;
+		font-family: var(--font-family);
+		font-weight: 500;
+		font-size: 20px;
+		color: var(--main);
 	}
 	@media (max-width: 720px) {
 		.social-links {

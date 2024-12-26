@@ -1,7 +1,9 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Block from '../components/Block.astro';
+import ProductCard from '../components/ProductCard.astro';
+
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -11,17 +13,95 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
 		<main>
-			<div class="mainPhoto">
-				<h2>Волшебной таблетки не было, но мы её сделали</h2>
-				<p>Превратили витамины, минералы и аминокислоты во вкусныеи работающие напитки, которые укрепляют здоровье и дают ощутимый заряд энергии. А еще тут мармеладные медведи для твоих бадди.</p>
-			</BackgroundImage>
+			<Block imgUrl='./main_photo.png'>
+				<Header />
+				<div class="blockContent">
+					<h2 class="title titleContent">Волшебной таблетки не было, но мы её сделали</h2>
+					<p class="subtitleContent text">Превратили витамины, минералы и аминокислоты во вкусныеи работающие напитки, которые укрепляют здоровье и дают ощутимый заряд энергии. А еще тут мармеладные медведи для твоих бадди.</p>
+				</div>
+			</Block>
+
+			<Block imgUrl='./main_photo_2.png'>
+				<div style="padding-top: 20em;">
+					<h3 class="revertedTitle">
+						<span>Не обязательно начинать новую жизнь</span>
+						<br /><span>— можно постепенно улучшать</span>
+						<br /><span>существующую!</span>
+					</h2>
+				</div>
+			</Block>
+			<div class="productContent">
+				<div class="cards">
+					<ProductCard
+						imgUrl='./productImage.png'
+						url='./product/123'
+						title='Multi Complex'
+						text='Витаминно-минеральный комплекс для ежедневных потребностей организма'
+						bullets={['капсулы', 'витамины']}
+					/>
+					<ProductCard
+						imgUrl='./productImage.png'
+						url='./product/123'
+						title='Multi Complex'
+						text='Витаминно-минеральный комплекс для ежедневных потребностей организма'
+						bullets={['капсулы', 'витамины']}
+					/>
+				</div>
+				<div class="buyNowContent">
+					<img src="./buy_now.png" />
+				</div>
+			</div>
 		</main>
 	</body>
 	<style>
-		.mainPhoto {
-			background-image: url("./main_photo.png");
+		.cards {
+			display: flex;
+			justify-content: space-between;
+		}
+		.buyNowContent {
+			margin-top: 1em;
+		}
+		.productContent {
+			margin-top: 1em;
+			padding: 0 1em;
+		}
+		.blockContent {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			padding: 0 7em;
+		}
+		.titleContent {
+			padding-top: 7em;
+		}
+		.subtitleContent {
+			padding-top: 2em;
+		}
+		.title {
+			font-weight: 400;
+			font-size: 64px;
+			line-height: 87%;
+			letter-spacing: -0.04em;
+			text-align: center;
+			color: #f7f3df;
+		}
+
+		.revertedTitle {
+			color: #3f1a05;
+			text-align: center;
+		}
+		.revertedTitle span {
+			padding: 0 10px;
+			background: #ffbaf1;
+		}
+
+		.text {
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 105%;
+			text-align: center;
+			color: #f7f3df;
 		}
 	</style>
 </html>

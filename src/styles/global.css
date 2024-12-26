@@ -43,10 +43,7 @@ body {
 	background-color: var(--main);
 }
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
 	margin: auto;
-	padding: 3em 1em;
 }
 h1,
 h2,
@@ -78,10 +75,10 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
+	color: var(--main);
 }
 a:hover {
-	color: var(--accent);
+	color: var(--main);
 }
 p {
 	margin-bottom: 1em;
