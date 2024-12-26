@@ -1,0 +1,27 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="mainPhoto">
+				<h2>Волшебной таблетки не было, но мы её сделали</h2>
+				<p>Превратили витамины, минералы и аминокислоты во вкусныеи работающие напитки, которые укрепляют здоровье и дают ощутимый заряд энергии. А еще тут мармеладные медведи для твоих бадди.</p>
+			</BackgroundImage>
+		</main>
+	</body>
+	<style>
+		.mainPhoto {
+			background-image: url("./main_photo.png");
+		}
+	</style>
+</html>
