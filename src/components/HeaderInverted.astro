@@ -1,0 +1,37 @@
+---
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav>
+		<img src="main-logo.svg" />
+		<div style="padding-left: 0.5em;">
+			<HeaderLink href="/products">Продукты</HeaderLink>
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		background: transparent;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+	}
+	nav {
+		padding: 1em;
+		display: flex;
+		align-items: center;;
+		font-family: var(--font-family);
+		font-weight: 500;
+		font-size: 20px;
+		color: #3F1A05;
+	}
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+</style>

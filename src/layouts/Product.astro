@@ -1,0 +1,125 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+type Props = CollectionEntry<'products'>['data'];
+
+const { title, description, heroImage, who, when, how, ingridients, table } = Astro.props;
+
+console.log(table);
+---
+
+<html lang="ru">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body>
+		<Header />
+		<main class="main">
+			<div class="row">
+				<div class="column">
+					<img src={heroImage} />
+					<div class=".featureList">
+						<div class="who bullet">
+							<h2>Кому?</h2>
+							<p>{who}</p>
+						</div>
+						<div class="when bullet">
+							<h2>Когда?</h2>
+							<p>{when}</p>
+						</div>
+						<div class="how bullet">
+							<h2>Как?</h2>
+							<p>{how}</p>
+						</div>
+						<div class="ingridients bullet">
+							<h2>Состав</h2>
+							<p>{ingridients}</p>
+						</div>
+						<div class="table bullet">
+							<h2>Кто есть кто?</h2>
+							{
+								table.map(item => (
+									<div class="tableRow">
+										<p>{item.factor}</p>
+										<p class="meaning">{item.meaning}</p>
+									</div>
+								))
+							}
+						</div>
+					</div>
+				</div>
+				<div style="flex: 0.3;" class="meaning column">
+					<h1>{title}</h1>
+					<p>{description}</p>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+	<style>
+		p {
+			font-weight: 400;
+			font-size: 16px;
+			color: #000;
+		}
+
+		h1 {
+			font-weight: 400;
+			font-size: 50px;
+			line-height: 87%;
+			letter-spacing: -0.03em;
+			color: #3f1a05;
+		}
+
+		.meaning {
+			margin-left: 10px;
+		}
+
+		.main {
+			max-width: 1400px;
+			padding: 0 3em;
+		}
+
+		.column {
+			display: flex;
+			flex-direction: column;
+			flex-basis: 100%;
+			flex: 1;
+		}
+
+		.row {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+
+		.tableRow {
+			display: flex;
+			border-bottom: #3F1A05;
+			border-radius: 1px;
+		}
+
+		.bullet {
+			p, h2 {
+				color: #3F1A05;
+			}
+		}
+
+		.who {
+			background-color: #BAFFE0;
+		}
+
+		.when {
+			background-color: #FFBAF1;
+		}
+
+		.how {
+			background-color: #FFC481;
+		}
+	</style>
+</html>
