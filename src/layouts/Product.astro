@@ -8,7 +8,6 @@ type Props = CollectionEntry<'products'>['data'];
 
 const { title, description, heroImage, who, when, how, ingridients, table } = Astro.props;
 
-console.log(table);
 ---
 
 <html lang="ru">
@@ -21,7 +20,7 @@ console.log(table);
 		<main class="main">
 			<div class="row">
 				<div class="column">
-					<img src={heroImage} />
+					<img src={`/vitaSite/${heroImage}`} />
 					<div class=".featureList">
 						<div class="who bullet">
 							<h2>Кому?</h2>
