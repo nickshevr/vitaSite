@@ -21,8 +21,8 @@ const { url, imgUrl, title, text, bullets} = Astro.props;
     </div>
     <div style="margin-top: 20px;" class="title">{title}</div>
     <div class="text">{text}</div>
-    <a class="centered" href={url}>
-        <p class="info subTitle">Подбробнее</p>
+    <a class="" href={url}>
+        <p class="centered info infoButton subTitle">Подробнее</p>
     </div>
 </div>
 <style>
@@ -30,7 +30,13 @@ const { url, imgUrl, title, text, bullets} = Astro.props;
         display: flex;
         align-items: center;
         align-content: center;
+        justify-content: center;
     }
+
+    .infoButton {
+        width: 350px;
+    }
+
     .title {
         font-weight: 400;
         font-size: 46px;
