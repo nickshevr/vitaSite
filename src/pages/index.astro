@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Block from '../components/Block.astro';
 import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
+import BuyNow from '../components/BuyNow.astro';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
@@ -27,13 +28,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			</div>
 			<div style="margin-top: 3em;" />
 			<Block imgUrl='./main_photo_2.png'>
-				<div style="padding-top: 20em;">
-					<h3 class="revertedTitle">
-						<span>Не обязательно начинать новую жизнь</span>
-						<br /><span>— можно постепенно улучшать</span>
-						<br /><span>существующую!</span>
-					</h2>
-				</div>
+				<h2 class="revertedTitle">
+					<span>Не обязательно начинать новую жизнь</span>
+					<br /><span>— можно постепенно улучшать</span>
+					<br /><span>существующую!</span>
+				</h2>
 			</Block>
 			<div style="margin-top: 3em;" class="productContent">
 				<div class="cards">
@@ -52,11 +51,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 						bullets={['бадик', 'в садик']}
 					/>
 				</div>
-				<div class="buyNowContent">
-					<a href="https://ozon.ru">
-					<img src="./buy_now.png" />
-					</a>
-				</div>
+				<BuyNow />
 			</div>
 		</main>
 		<Footer />
@@ -65,9 +60,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		.cards {
 			display: flex;
 			justify-content: space-between;
-		}
-		.buyNowContent {
-			margin-top: 1em;
 		}
 		.productContent {
 			margin-top: 1em;
@@ -95,6 +87,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		}
 
 		.revertedTitle {
+			padding-top: 530px;
 			color: #3f1a05;
 			text-align: center;
 		}
