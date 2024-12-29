@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
+import Header from '../components/HeaderInverted.astro';
 import Footer from '../components/Footer.astro';
 
 type Props = CollectionEntry<'products'>['data'];
@@ -54,7 +54,7 @@ const { title, description, heroImage, who, when, how, ingridients, table } = As
 						</div>
 					</div>
 				</div>
-				<div style="flex: 0.3;" class="meaning column">
+				<div style="flex: 0.35;" class="meaning column">
 					<h1>{title}</h1>
 					<p>{description}</p>
 				</div>
@@ -93,6 +93,7 @@ const { title, description, heroImage, who, when, how, ingridients, table } = As
 
 		.main {
 			max-width: 1400px;
+			margin-top: 20px;
 			padding: 0 3em;
 		}
 

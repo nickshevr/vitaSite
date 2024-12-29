@@ -92,6 +92,7 @@ b {
 }
 a {
 	color: var(--main);
+	text-decoration: none;
 }
 a:hover {
 	color: var(--main);
