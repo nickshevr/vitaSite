@@ -7,11 +7,13 @@ interface Props {
     bullets: string[];
 }
 
+import {BASE_URL_PREFIX} from '../consts';
+
 const { url, imgUrl, title, text, bullets} = Astro.props;
 ---
 
 <div class="main">
-    <img src={imgUrl}/>
+    <img src={`${BASE_URL_PREFIX}/${imgUrl}`}/>
     <div class="bullets">
         {
             bullets.map(bullet => (
@@ -21,7 +23,7 @@ const { url, imgUrl, title, text, bullets} = Astro.props;
     </div>
     <div style="margin-top: 20px;" class="title">{title}</div>
     <div class="text">{text}</div>
-    <a class="" href={url}>
+    <a class="" href={`${BASE_URL_PREFIX}/${url}`}>
         <p class="centered info infoButton subTitle">Подробнее</p>
     </div>
 </div>
