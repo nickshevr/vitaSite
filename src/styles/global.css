@@ -30,8 +30,23 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+@font-face {
+	font-family: 'Juneau';
+	src: url('/fonts/juneau_normal.otf') format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Juneau';
+	src: url('/fonts/juneau_normal.otf')format("opentype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
 body {
-	font-family: 'Secretary', sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -51,6 +66,7 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: 'Secretary', sans-serif;
 	margin: 0 0 0.5rem 0;
 	color: var(--main);
 	line-height: 1.2;
@@ -81,6 +97,7 @@ a:hover {
 	color: var(--main);
 }
 p {
+	font-family: 'Juneau', sans-serif;
 	margin-bottom: 1em;
 }
 .prose p {
