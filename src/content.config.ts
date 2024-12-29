@@ -11,6 +11,7 @@ const products = defineCollection({
 		when: z.string(),
 		how: z.string(),
 		ingridients: z.string(),
+		ozonLink: z.string(),
 		description: z.string(),
 		// Transform string to Date object
 		heroImage: z.string().optional(),

@@ -6,6 +6,6 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://nickshevr.github.io',
-	//base: 'vitaSite',
+	base: 'vitaSite',
 	integrations: [mdx(), sitemap()],
 });

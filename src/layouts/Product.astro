@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 
 type Props = CollectionEntry<'products'>['data'];
 
-const { title, description, heroImage, who, when, how, ingridients, table } = Astro.props;
+const { title, description, heroImage, who, when, how, ingridients, table, ozonLink } = Astro.props;
 
 ---
 
@@ -54,9 +54,14 @@ const { title, description, heroImage, who, when, how, ingridients, table } = As
 						</div>
 					</div>
 				</div>
-				<div style="flex: 0.35;" class="meaning column">
+				<div class="meaning column info">
 					<h1>{title}</h1>
 					<p>{description}</p>
+					<div style="margin-top: 68px;">
+						<a class="ozonLink" href={ozonLink}>
+							купить на озон
+						</a>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -77,6 +82,21 @@ const { title, description, heroImage, who, when, how, ingridients, table } = As
 			color: #3f1a05;
 		}
 
+		.ozonLink {
+			width: 100%;
+			background: #fa742c;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 16px;
+
+			font-weight: 500;
+			font-size: 18px;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: #f7f3df;
+		}
+
 		.factor {
 			display: block;
 			min-width: 110px;
@@ -94,7 +114,7 @@ const { title, description, heroImage, who, when, how, ingridients, table } = As
 		.main {
 			max-width: 1400px;
 			margin-top: 20px;
-			padding: 0 3em;
+			padding: 0 60px;
 		}
 
 		.textContent {
@@ -142,6 +162,11 @@ const { title, description, heroImage, who, when, how, ingridients, table } = As
 
 		.how {
 			background-color: #FFC481;
+		}
+
+		.info {
+			margin-left: 20px;
+			flex: 0.35;
 		}
 	</style>
 </html>
