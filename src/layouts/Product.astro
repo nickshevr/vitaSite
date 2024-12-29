@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/HeaderInverted.astro';
 import Footer from '../components/Footer.astro';
+import {BASE_URL_PREFIX} from '../consts';
 
 type Props = CollectionEntry<'products'>['data'];
 
@@ -20,7 +21,7 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 		<main class="main">
 			<div class="row">
 				<div class="column">
-					<img src={`/vitaSite/${heroImage}`} />
+					<img src={`${BASE_URL_PREFIX}/${heroImage}`} />
 					<div class=".featureList">
 						<div class="who bullet">
 							<h2>Кому?</h2>

@@ -3,10 +3,12 @@ interface Props {
 	imgUrl: string;
 }
 
+import {BASE_URL_PREFIX} from '../consts';
+
 const { imgUrl } = Astro.props;
 ---
 
-<div class="main" style=`background-image: url(${imgUrl});`>
+<div class="main" style=`background-image: url(${BASE_URL_PREFIX}/${imgUrl});`>
     <slot />
 </div>
 <style>
