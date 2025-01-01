@@ -1,0 +1,63 @@
+---
+import { getImage } from "astro:assets";
+import myBackground from "../images/main_photo_2.png";
+import mobileBackground from "../images/main_photo_2_mobile.png";
+
+const optimizedBackground = await getImage({src: myBackground, format: 'webp'});
+const optimizedMobile = await getImage({src: mobileBackground, format: 'webp'});
+---
+<div class="root">
+	<div class="revertedTitle">
+		<span>Не обязательно начинать новую жизнь</span>
+		<br /><span>— можно постепенно улучшать</span>
+		<br /><span>существующую!</span>
+	</div>
+</div>
+
+<style define:vars={{mobile: `url(${optimizedMobile.src})`, desktop: `url(${optimizedBackground.src})`}}>
+	.root {
+		background-image: var(--mobile);
+		background-size: cover;
+		margin-top: 40px;
+	}
+
+	span {
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 100%;
+		letter-spacing: -0.04em;
+	}
+
+	.revertedTitle {
+		padding-top: 470px;
+		color: #3f1a05;
+		text-align: center;
+		padding-bottom: 64px;
+	}
+	.revertedTitle span {
+		background: #ffbaf1;
+		padding: 5px 10px;
+	}
+
+	@media (min-width: 720px) {
+		span {
+			font-size: 45px;
+		}
+
+		.root {
+			background-image: var(--desktop);
+			margin-top: 120px;
+		}
+
+		.revertedTitle {
+			padding-top: 530px;
+			padding-bottom: 128px;
+		}
+
+		.revertedTitle span {
+			padding: 0 10px;
+		}
+	}
+
+
+</style>

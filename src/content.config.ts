@@ -6,6 +6,8 @@ const products = defineCollection({
 	loader: glob({ base: './src/content/products', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
 	schema: z.object({
+		id: z.string(),
+		bullets: z.array(z.string()),
 		title: z.string(),
 		who: z.string(),
 		when: z.string(),
@@ -14,7 +16,7 @@ const products = defineCollection({
 		ozonLink: z.string(),
 		description: z.string(),
 		// Transform string to Date object
-		heroImage: z.string().optional(),
+		heroImage: z.string(),
 		table: z.array(z.object({
 			factor: z.string(),
 			meaning: z.string(),

@@ -2,9 +2,10 @@
 import BaseHead from '../components/BaseHead.astro';
 import Block from '../components/Block.astro';
 import MainBlock from '../components/MainBlock.astro';
+import SecondBlock from '../components/SecondBlock.astro';
 import InfoBlock from '../components/InfoBlock.astro';
 import Footer from '../components/Footer.astro';
-import ProductCard from '../components/ProductCard.astro';
+import ProductCarousel from '../components/ProductsCarousel.astro';
 import BuyNow from '../components/BuyNow.astro';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -23,33 +24,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<p class="subtitleContent text">Превратили витамины, минералы и&nbsp;аминокислоты во&nbsp;вкусныеи работающие напитки, которые укрепляют здоровье и&nbsp;дают ощутимый заряд энергии. А&nbsp;еще тут мармеладные медведи для твоих бадди.</p>
 			</MainBlock>
 			<InfoBlock />
-			{false && 			<div style="margin-top: 3em;" />
-			<Block imgUrl='/main_photo_2.png'>
-				<h2 class="revertedTitle">
-					<span>Не обязательно начинать новую жизнь</span>
-					<br /><span>— можно постепенно улучшать</span>
-					<br /><span>существующую!</span>
-				</h2>
-			</Block>
-			<div style="margin-top: 3em;" class="productContent">
-				<div class="cards">
-					<ProductCard
-						imgUrl='/productImage.png'
-						url='product/tovar1'
-						title='Multi Complex'
-						text='Витаминно-минеральный комплекс для ежедневных потребностей организма'
-						bullets={['капсулы', 'витамины']}
-					/>
-					<ProductCard
-						imgUrl='/productImage.png'
-						url='product/tovar2'
-						title='Multi Complex 2'
-						text='Витаминно-минеральный комплекс для новых потребностей организма'
-						bullets={['бадик', 'в садик']}
-					/>
-				</div>
-				<BuyNow />
-			</div>}
+			<SecondBlock />
+			<ProductCarousel />
+			<BuyNow />
 		</main>
 		<Footer />
 	</body>
@@ -66,8 +43,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 		.titleContent {
 			padding-top: 290px;
-			padding-left: 29px;
-			padding-right: 29px;
 		}
 
 		.subtitleContent {
@@ -87,10 +62,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		.cards {
 			display: flex;
 			justify-content: space-between;
-		}
-		.productContent {
-			margin-top: 1em;
-			padding: 0 1em;
 		}
 
 		.title {
@@ -116,16 +87,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				font-size: 64px;
 				line-height: 87%;
 				letter-spacing: -0.04em;
-			}
-
-			.revertedTitle {
-				padding-top: 530px;
-				color: #3f1a05;
-				text-align: center;
-			}
-			.revertedTitle span {
-				padding: 0 10px;
-				background: #ffbaf1;
 			}
 
 			.text {

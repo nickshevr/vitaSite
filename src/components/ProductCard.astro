@@ -1,19 +1,19 @@
 ---
 interface Props {
-	imgUrl: string;
-    url: string;
+	heroImage: string;
     title: string;
-    text: string;
     bullets: string[];
+    id: string;
+    description: string;
 }
 
 import {BASE_URL_PREFIX} from '../consts';
 
-const { url, imgUrl, title, text, bullets} = Astro.props;
+const { id, heroImage, title, description, bullets} = Astro.props;
 ---
 
 <div class="main">
-    <img src={`${BASE_URL_PREFIX}/${imgUrl}`}/>
+    <img src={`${BASE_URL_PREFIX}/${heroImage}`}/>
     <div class="bullets">
         {
             bullets.map(bullet => (
@@ -22,12 +22,17 @@ const { url, imgUrl, title, text, bullets} = Astro.props;
         }
     </div>
     <div style="margin-top: 20px;" class="title">{title}</div>
-    <div class="text">{text}</div>
-    <a class="" href={`${BASE_URL_PREFIX}/${url}`}>
+    <div class="text">{description}</div>
+    <a class="" href={`${BASE_URL_PREFIX}/product/${id}`}>
         <p class="centered info infoButton subTitle">Подробнее</p>
     </div>
 </div>
 <style>
+    .main {
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+
     .centered {
         display: flex;
         align-items: center;

@@ -1,13 +1,24 @@
 ---
 import { Picture } from 'astro:assets';
 
-import localImage from '../images/buy_now.png';
+import desktopImage from '../images/buy_now.png';
+import mobileImage from '../images/buy_now_mobile.png';
 ---
 
 <div class="main">
 	<a href="https://ozon.ru">
 		<Picture
-			src={localImage}
+			class="desktop"
+			src={desktopImage}
+			alt="Купить сейчас"
+			formats={['avif', 'webp']}
+			fallbackFormat='jpeg'
+			loading="lazy"
+			fetchpriority="high"
+		/>
+		<Picture
+			class="mobile"
+			src={mobileImage}
 			alt="Купить сейчас"
 			formats={['avif', 'webp']}
 			fallbackFormat='jpeg'
@@ -17,6 +28,20 @@ import localImage from '../images/buy_now.png';
 	</a>
 </div>
 <style>
+	.desktop {
+		display: none;
+	}
+
+	@media (min-width: 720px) {
+		.desktop {
+			display: block;
+		}
+
+		.mobile {
+			display: none;
+		}
+	}
+
 	.main {
 		margin-top: 80px;
 	}

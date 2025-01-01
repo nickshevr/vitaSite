@@ -1,12 +1,24 @@
 ---
 import { Picture } from 'astro:assets';
 
-import localImage from '../images/teamInfo.png';
+import desktopImage from '../images/team_info.png';
+import mobileImage from '../images/team_info_mobile.png';
+
 ---
 
 <div class="root">
 	<Picture
-		src={localImage}
+		class="desktop"
+		src={desktopImage}
+		alt="О команде"
+		formats={['avif', 'webp']}
+		fallbackFormat='jpeg'
+		loading="lazy"
+		fetchpriority="high"
+	/>
+	<Picture
+		class="mobile"
+		src={mobileImage}
 		alt="О команде"
 		formats={['avif', 'webp']}
 		fallbackFormat='jpeg'
@@ -16,9 +28,32 @@ import localImage from '../images/teamInfo.png';
 </div>
 
 <style>
+	.desktop {
+		display: none;
+	}
+
 	.root {
-		width: 100%;
-        background-size: cover;
-		height: 800px;
+		margin-top: 30px;
+		padding: 0 15px;
+		background-size: cover;
+	}
+
+	@media (min-width: 720px) {
+		.desktop {
+			display: block;
+		}
+
+		.mobile {
+			display: none;
+		}
+
+		.root {
+			margin-top: 68px;
+			padding: 0;
+			display: flex;
+			background-size: cover;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 </style>
