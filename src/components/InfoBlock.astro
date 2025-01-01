@@ -1,0 +1,24 @@
+---
+import { Picture } from 'astro:assets';
+
+import localImage from '../images/teamInfo.png';
+---
+
+<div class="root">
+	<Picture
+		src={localImage}
+		alt="О команде"
+		formats={['avif', 'webp']}
+		fallbackFormat='jpeg'
+		loading="lazy"
+		fetchpriority="high"
+	/>
+</div>
+
+<style>
+	.root {
+		width: 100%;
+        background-size: cover;
+		height: 800px;
+	}
+</style>

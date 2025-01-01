@@ -1,13 +1,13 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import Block from '../components/Block.astro';
+import MainBlock from '../components/MainBlock.astro';
+import InfoBlock from '../components/InfoBlock.astro';
 import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
 import BuyNow from '../components/BuyNow.astro';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import {BASE_URL_PREFIX} from '../consts';
 
 ---
 
@@ -17,18 +17,13 @@ import {BASE_URL_PREFIX} from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<main style="max-width: 1400px;">
-			<Block imgUrl='/main_photo.png'>
-				<Header />
-				<div class="blockContent">
-					<h2 class="title titleContent">Волшебной таблетки не&nbsp;было,&nbspно&nbsp;мы&nbsp;её&nbsp;сделали</h2>
-					<p class="subtitleContent text">Превратили витамины, минералы и&nbsp;аминокислоты во&nbsp;вкусныеи работающие напитки, которые укрепляют здоровье и&nbsp;дают ощутимый заряд энергии. А&nbsp;еще тут мармеладные медведи для твоих бадди.</p>
-				</div>
-			</Block>
-			<div style="margin-top: 3em; display: flex; justify-content: center;">
-				<img src={`${BASE_URL_PREFIX}/secondInfo.png`} />
-			</div>
-			<div style="margin-top: 3em;" />
+		<main class="main">
+			<MainBlock>
+				<h2 class="title titleContent">Волшебной таблетки не&nbsp;было,&nbspно&nbsp;мы&nbsp;её&nbsp;сделали</h2>
+				<p class="subtitleContent text">Превратили витамины, минералы и&nbsp;аминокислоты во&nbsp;вкусныеи работающие напитки, которые укрепляют здоровье и&nbsp;дают ощутимый заряд энергии. А&nbsp;еще тут мармеладные медведи для твоих бадди.</p>
+			</MainBlock>
+			<InfoBlock />
+			{false && 			<div style="margin-top: 3em;" />
 			<Block imgUrl='/main_photo_2.png'>
 				<h2 class="revertedTitle">
 					<span>Не обязательно начинать новую жизнь</span>
@@ -54,11 +49,41 @@ import {BASE_URL_PREFIX} from '../consts';
 					/>
 				</div>
 				<BuyNow />
-			</div>
+			</div>}
 		</main>
 		<Footer />
 	</body>
 	<style>
+		.main {
+			width: 100;
+		}
+
+		@media (min-width: 720px) {
+			.main {
+				max-width: 1400px;
+			}
+		}
+
+		.titleContent {
+			padding-top: 290px;
+			padding-left: 29px;
+			padding-right: 29px;
+		}
+
+		.subtitleContent {
+			margin-top: 20px;
+			padding: 0 14px;
+		}
+
+		@media (min-width: 720px) {
+			.titleContent {
+				padding-top: 440px;
+			}
+			.subtitleContent {
+				margin-top: 20px;
+			}
+		}
+
 		.cards {
 			display: flex;
 			justify-content: space-between;
@@ -67,43 +92,46 @@ import {BASE_URL_PREFIX} from '../consts';
 			margin-top: 1em;
 			padding: 0 1em;
 		}
-		.blockContent {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			padding: 0 14em;
-		}
-		.titleContent {
-			padding-top: 7em;
-		}
-		.subtitleContent {
-			padding-top: 2em;
-		}
+
 		.title {
 			font-weight: 400;
-			font-size: 64px;
-			line-height: 87%;
+			font-size: 34px;
+			line-height: 94%;
 			letter-spacing: -0.04em;
 			text-align: center;
 			color: #f7f3df;
 		}
 
-		.revertedTitle {
-			padding-top: 530px;
-			color: #3f1a05;
-			text-align: center;
-		}
-		.revertedTitle span {
-			padding: 0 10px;
-			background: #ffbaf1;
-		}
-
 		.text {
 			font-weight: 500;
-			font-size: 20px;
-			line-height: 105%;
+			font-size: 15px;
+			line-height: 100%;
 			text-align: center;
 			color: #f7f3df;
+		}
+
+		@media (min-width: 720px) {
+			.title {
+				font-weight: 400;
+				font-size: 64px;
+				line-height: 87%;
+				letter-spacing: -0.04em;
+			}
+
+			.revertedTitle {
+				padding-top: 530px;
+				color: #3f1a05;
+				text-align: center;
+			}
+			.revertedTitle span {
+				padding: 0 10px;
+				background: #ffbaf1;
+			}
+
+			.text {
+				font-size: 20px;
+				line-height: 105%;
+			}
 		}
 	</style>
 </html>

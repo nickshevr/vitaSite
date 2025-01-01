@@ -1,10 +1,19 @@
 ---
-import {BASE_URL_PREFIX} from '../consts';
+import { Picture } from 'astro:assets';
+
+import localImage from '../images/buy_now.png';
 ---
 
 <div class="main">
 	<a href="https://ozon.ru">
-	<img src={`${BASE_URL_PREFIX}/buy_now.png`} />
+		<Picture
+			src={localImage}
+			alt="Купить сейчас"
+			formats={['avif', 'webp']}
+			fallbackFormat='jpeg'
+			loading="lazy"
+			fetchpriority="high"
+		/>
 	</a>
 </div>
 <style>
