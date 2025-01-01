@@ -13,6 +13,14 @@ const products = await getCollection('products');
 </div>
 <style>
     .products {
+        display: flex;
+        flex-direction: column;
+    }
 
+    @media (min-width: 720px) {
+        .products {
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
 </style>
