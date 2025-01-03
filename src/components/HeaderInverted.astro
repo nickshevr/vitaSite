@@ -28,13 +28,14 @@ import {BASE_URL_PREFIX} from '../consts';
 	}
 
 	.menu {
-		padding: 27px 20px;
+		padding: 4px 16px;
 		display: flex;
 		align-items: center;
 	}
 
 	.invertedLink {
-		padding: 0px 10px;
+		font-size: 16px;
+		padding: 2px;
 		margin-left: 27px;
 		background: #3f1a05;
 	}
@@ -44,7 +45,18 @@ import {BASE_URL_PREFIX} from '../consts';
 		background: #3F1A05;
 	}
 
-	@media (max-width: 720px) {
+	@media (min-width: 720px) {
+		.menu {
+			padding: 27px 20px;
+			display: flex;
+			align-items: center;
+		}
 
+		.invertedLink {
+			font-size: 18px;
+			padding: 0px 10px;
+			margin-left: 27px;
+			background: #3f1a05;
+		}
 	}
 </style>
