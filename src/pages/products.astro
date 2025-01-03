@@ -1,8 +1,12 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import ProductCard from '../components/ProductCard.astro';
+import Footer from '../components/Footer.astro';
+import ProductCarousel from '../components/ProductsCarousel.astro';
+import BuyNow from '../components/BuyNow.astro';
+import Header from '../components/HeaderInverted.astro';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
 ---
 
 <!doctype html>
@@ -11,87 +15,83 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<main style="max-width: 1400px;">
-            <div class="blockContent">
-                <h2 class="title titleContent">Продукты компании</h2>
+		<main class="main">
+			<Header />
+			<div class="textInfo">
+				<h2 class="title titleContent">Продукты компании</h2>
                 <p class="subtitleContent text">Идеально подобранные компоненты для поддержки здоровья вместо короткого отпускаи средиземноморских диет.
 
                     Маленькие шоты с вкусными напитками вместо горсти таблеток или порошков.
                     Поддержка и веселые истории вместо завышенной планки и сравнения с другими.</p>
-            </div>
-			<div style="margin-top: 3em;" class="productContent">
-				<div class="cards">
-					<ProductCard
-						imgUrl='./productImage.png'
-						url='./product/1'
-						title='Multi Complex'
-						text='Витаминно-минеральный комплекс для ежедневных потребностей организма'
-						bullets={['капсулы', 'витамины']}
-					/>
-					<ProductCard
-						imgUrl='./productImage.png'
-						url='./product/2'
-						title='Multi Complex 2'
-						text='Витаминно-минеральный комплекс для новых потребностей организма'
-						bullets={['бадик', 'в садик']}
-					/>
-				</div>
-				<div class="buyNowContent">
-					<a href="https://ozon.ru">
-					<img src="./buy_now.png" />
-					</a>
-				</div>
 			</div>
+			<ProductCarousel />
+			<BuyNow />
 		</main>
+		<Footer />
 	</body>
 	<style>
+		.textInfo {
+			padding: 0 20px;
+		}
+
+		@media (min-width: 720px) {
+			.main {
+				max-width: 1400px;
+			}
+
+			.textInfo {
+				padding: 0 20px;
+			}
+		}
+
+		.titleContent {
+			margin-top: 70px;
+		}
+
+		.subtitleContent {
+			margin-top: 35px;
+		}
+
+		@media (min-width: 720px) {
+			.subtitleContent {
+				margin-top: 20px;
+			}
+		}
+
 		.cards {
 			display: flex;
 			justify-content: space-between;
 		}
-		.buyNowContent {
-			margin-top: 1em;
-		}
-		.productContent {
-			margin-top: 1em;
-			padding: 0 1em;
-		}
-		.blockContent {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			padding: 0 14em;
-		}
-		.titleContent {
-			padding-top: 7em;
-		}
-		.subtitleContent {
-			padding-top: 2em;
-		}
+
 		.title {
 			font-weight: 400;
-			font-size: 64px;
-			line-height: 87%;
+			font-size: 34px;
+			line-height: 94%;
 			letter-spacing: -0.04em;
-			text-align: center;
-			color: #f7f3df;
-		}
-
-		.revertedTitle {
-			color: #3f1a05;
-			text-align: center;
-		}
-		.revertedTitle span {
-			padding: 0 10px;
-			background: #ffbaf1;
+			text-align: left;
+			color: #3F1A05;
 		}
 
 		.text {
 			font-weight: 500;
-			font-size: 20px;
-			line-height: 105%;
-			text-align: center;
-			color: #f7f3df;
+			font-size: 15px;
+			line-height: 100%;
+			text-align: left;
+			color: #3F1A05;
+		}
+
+		@media (min-width: 720px) {
+			.title {
+				font-weight: 400;
+				font-size: 64px;
+				line-height: 87%;
+				letter-spacing: -0.04em;
+			}
+
+			.text {
+				font-size: 20px;
+				line-height: 105%;
+			}
 		}
 	</style>
 </html>
