@@ -17,19 +17,19 @@ const { id, heroImage, title, description, bullets} = Astro.props;
     <div class="bullets">
         {
             bullets.map(bullet => (
-                <div class="bullet">{bullet}</div>
+                <p class="bullet">{bullet}</p>
             ))
         }
     </div>
-    <div class="title">{title}</div>
-    <div class="text">{description}</div>
+    <h1 class="title">{title}</h1>
+    <p class="text">{description}</p>
     <a class="infoButton" href={`${BASE_URL_PREFIX}/product/${id}`}>
         <p class="centered info subTitle">Подробнее</p>
-    </div>
+    </a>
 </div>
 <style>
     .main {
-        margin-top: 30px;
+        margin-top: 20px;
         padding: 0 20px;
         display: flex;
         flex-direction: column;
@@ -37,8 +37,7 @@ const { id, heroImage, title, description, bullets} = Astro.props;
     }
 
     .infoButton {
-        width: 350px;
-        margin-top: 35px;
+        margin-top: 32px;
     }
 
     @media (min-width: 720px) {

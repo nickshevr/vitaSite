@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets';
+import { Image } from 'astro:assets';
 
 import desktopImage from '../images/team_info.png';
 import mobileImage from '../images/team_info_mobile.png';
@@ -7,21 +7,17 @@ import mobileImage from '../images/team_info_mobile.png';
 ---
 
 <div class="root">
-	<Picture
+	<Image
 		class="desktop"
 		src={desktopImage}
 		alt="О команде"
-		formats={['avif', 'webp']}
-		fallbackFormat='jpeg'
 		loading="eager"
 		fetchpriority="high"
 	/>
-	<Picture
+	<Image
 		class="mobile"
 		src={mobileImage}
 		alt="О команде"
-		formats={['avif', 'webp']}
-		fallbackFormat='jpeg'
 		loading="eager"
 		fetchpriority="high"
 	/>
