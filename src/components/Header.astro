@@ -31,7 +31,8 @@ import {BASE_URL_PREFIX} from '../consts';
 		text-decoration: none;
 	}
 	nav {
-		padding: 1em;
+		padding: 12px;
+		position: absolute;
 		display: flex;
 		align-items: center;;
 		font-family: var(--font-family);
@@ -44,21 +45,23 @@ import {BASE_URL_PREFIX} from '../consts';
 		margin-left: 48px;
 	}
 
-	@media (min-width: 720px) {
-		.links {
-			margin-left: 24px;
-		}
-	}
-
 	.logo {
 		width: 124px;
 		height: 30px;
 	}
 
 	@media (min-width: 720px) {
+		.links {
+			margin-left: 24px;
+		}
+
 		.logo {
 			width: 173px;
 			height: 42px;
+		}
+
+		nav {
+			padding: 36px;
 		}
 	}
 </style>

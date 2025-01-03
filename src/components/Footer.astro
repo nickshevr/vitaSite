@@ -61,7 +61,7 @@ const today = new Date();
 
 		@media (min-width: 720px) {
 			.logo_desk {
-				max-width: 1400px;
+				display: block;
 			}
 
 			.logo_mobile {
@@ -79,10 +79,12 @@ const today = new Date();
 			}
 
 			.content {
+				margin: 0 36px;
 				padding-top: 260px;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				flex-direction: row;
 			}
 
 			.mainText {

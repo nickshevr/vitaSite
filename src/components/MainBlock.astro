@@ -1,41 +1,58 @@
 ---
-import { getImage } from "astro:assets";
-import myBackground from "../images/main_photo.png";
-import mobileBackground from "../images/main_mobile.png";
-import Header from '../components/Header.astro';
+import { Picture } from 'astro:assets';
 
-const optimizedBackground = await getImage({src: myBackground, format: 'webp'});
-const optimizedMobile = await getImage({src: mobileBackground, format: 'webp'});
+import desktopImage from '../images/main_with_text.png';
+import mobileImage from '../images/main_with_text_mobile.png';
+
 ---
+
 <div class="root">
-	<Header />
-	<div class="blockContent">
-		<slot />
-	</div>
+	<Picture
+		class="desktop"
+		src={desktopImage}
+		alt="Волшебной таблетки не было но мы ее сделали"
+		formats={['avif', 'webp']}
+		fallbackFormat='jpeg'
+		loading="eager"
+		fetchpriority="high"
+		decoding="sync"
+	/>
+	<Picture
+		class="mobile"
+		src={mobileImage}
+		alt="Волшебной таблетки не было но мы ее сделали"
+		formats={['avif', 'webp']}
+		fallbackFormat='jpeg'
+		loading="eager"
+		fetchpriority="high"
+		decoding="sync"
+	/>
 </div>
 
-<style define:vars={{mobile: `url(${optimizedMobile.src})`, desktop: `url(${optimizedBackground.src})`}}>
+<style>
+	.desktop {
+		display: none;
+	}
+
 	.root {
-		width: 100%;
-		height: 580px;
-		background-image: var(--mobile);
 		background-size: cover;
 	}
 
-	.blockContent {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-	}
-
 	@media (min-width: 720px) {
-		.root {
-			background-size: cover;
-			height: 800px;
-			background-image: var(--desktop);
+		.desktop {
+			display: block;
 		}
 
-		.blockContent {
+		.mobile {
+			display: none;
+		}
+
+		.root {
+			padding: 0;
+			display: flex;
+			background-size: cover;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 </style>

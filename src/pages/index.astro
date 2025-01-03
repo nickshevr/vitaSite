@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
 import MainBlock from '../components/MainBlock.astro';
 import SecondBlock from '../components/SecondBlock.astro';
 import InfoBlock from '../components/InfoBlock.astro';
@@ -17,11 +18,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<main class="main">
-			<MainBlock>
-				<h2 class="title titleContent">Волшебной таблетки небыло,но&nbsp;мы её&nbsp;сделали</h2>
-				<p class="subtitleContent text">Превратили витамины, минералы и&nbsp;аминокислоты во&nbsp;вкусныеи работающие напитки, которые укрепляют здоровье и&nbsp;дают ощутимый заряд энергии. А&nbsp;еще тут мармеладные медведи для твоих бадди.</p>
-			</MainBlock>
+		<main>
+			<Header />
+			<MainBlock />
 			<InfoBlock />
 			<SecondBlock />
 			<ProductCarousel />
@@ -31,62 +30,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</body>
 	<style>
 		@media (min-width: 720px) {
-			.main {
+			main {
 				max-width: 1400px;
-			}
-		}
-
-		.titleContent {
-			padding-top: 290px;
-		}
-
-		.subtitleContent {
-			margin-top: 20px;
-			padding: 0 14px;
-		}
-
-		@media (min-width: 720px) {
-			.titleContent {
-				padding-top: 440px;
-			}
-			.subtitleContent {
-				margin-top: 20px;
-			}
-		}
-
-		.cards {
-			display: flex;
-			justify-content: space-between;
-		}
-
-		.title {
-			font-weight: 400;
-			font-size: 34px;
-			line-height: 94%;
-			letter-spacing: -0.04em;
-			text-align: center;
-			color: #f7f3df;
-		}
-
-		.text {
-			font-weight: 500;
-			font-size: 15px;
-			line-height: 100%;
-			text-align: center;
-			color: #f7f3df;
-		}
-
-		@media (min-width: 720px) {
-			.title {
-				font-weight: 400;
-				font-size: 64px;
-				line-height: 87%;
-				letter-spacing: -0.04em;
-			}
-
-			.text {
-				font-size: 20px;
-				line-height: 105%;
 			}
 		}
 	</style>
