@@ -22,7 +22,16 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 			<div class="row">
 				<div class="column">
 					<img src={`${BASE_URL_PREFIX}/${heroImage}`} />
-					<div class=".featureList">
+					<div class="mobile">
+						<h1>{title}</h1>
+						<p>{description}</p>
+						<div class="buyLink">
+							<a class="ozonLink" href={ozonLink}>
+								купить на озон
+							</a>
+						</div>
+					</div>
+					<div class="featureList">
 						<div class="who bullet">
 							<h2>Кому?</h2>
 							<p class="textContent">{who}</p>
@@ -55,10 +64,10 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 						</div>
 					</div>
 				</div>
-				<div class="meaning column info">
+				<div class="desktop meaning column info">
 					<h1>{title}</h1>
 					<p>{description}</p>
-					<div style="margin-top: 68px;">
+					<div class="buyLink">
 						<a class="ozonLink" href={ozonLink}>
 							купить на озон
 						</a>
@@ -89,7 +98,7 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			padding: 16px;
+			padding: 16px 0;
 
 			font-weight: 500;
 			font-size: 18px;
@@ -169,10 +178,38 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 			flex: 0.35;
 		}
 
+		.buyLink {
+			margin-top: 32px;
+		}
+
+		.desktop {
+			display: none;
+		}
+
+		.mobile {
+			margin-top: 15px;
+		}
+
 		@media (min-width: 720px) {
+			.buyLink {
+				margin-top: 68px;
+			}
+
+			.desktop {
+				display: block;
+			}
+
+			.mobile {
+				display: none;
+			}
+
 			.main {
 				max-width: 1400px;
 				padding: 0 60px;
+			}
+
+			.buyLink {
+				margin-top: 68px;
 			}
 		}
 	</style>
