@@ -17,8 +17,8 @@ jobs:
         run: npm run build
       - uses: MrMeison/yc-object-storage-action@main
         with:
-          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
-          secretAccessKey: ${{ secrets.SECRET_ACCESS_KEY }}
-          bucketName: ${{ secrets.BUCKET }}
+          accessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          bucketName: ${{ secrets.BUCKET_ID }}
           sourceDir: ./dist
           clear: true
