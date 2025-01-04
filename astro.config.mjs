@@ -8,7 +8,6 @@ export default defineConfig({
 	prefetch: {
 		defaultStrategy: 'viewport'
 	},
-	site: 'https://nickshevr.github.io',
-	base: 'vitaSite',
+	site: 'https://mybuddy.website.yandexcloud.net',
 	integrations: [mdx(), sitemap()],
 });

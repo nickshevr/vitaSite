@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'MyBuddy';
 export const SITE_DESCRIPTION = 'MyBuddy - команда биохакинг-энтузиастов';
-export const BASE_URL_PREFIX = '/vitaSite';
+export const BASE_URL_PREFIX = '';
