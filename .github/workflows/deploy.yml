@@ -11,15 +11,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ru-central1
       - name: Install modules
         run: npm ci
       - name: Build application
         run: npm run build
-      - name: Deploy to S3
-        run: aws s3 --endpoint-url=https://storage.yandexcloud.net sync --delete ./dist/ s3://${{ secrets.BUCKET_ID }} --
+      - uses: MrMeison/yc-object-storage-action@main
+        with:
+          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+          secretAccessKey: ${{ secrets.SECRET_ACCESS_KEY }}
+          bucketName: ${{ secrets.BUCKET }}
+          sourceDir: ./dist
+          clear: true
