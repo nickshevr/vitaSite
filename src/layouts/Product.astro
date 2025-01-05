@@ -25,6 +25,7 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 					<img src={`${BASE_URL_PREFIX}/${heroImage}`} />
 					<div class="mobile">
 						<h1>{title}</h1>
+						<Bullets bullets={bullets} type='circle'/>
 						<p>{description}</p>
 						<Bullets title='Вкусы' bullets={bullets} type='square'/>
 						<Bullets title='Количество' bullets={bullets} type='square'/>
@@ -69,6 +70,7 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 				</div>
 				<div class="desktop meaning column info">
 					<h1>{title}</h1>
+					<Bullets bullets={bullets} type='circle'/>
 					<p>{description}</p>
 					<Bullets title='Вкусы' bullets={bullets} type='square'/>
 					<Bullets title='Количество' bullets={bullets} type='square'/>
