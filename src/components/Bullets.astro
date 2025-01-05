@@ -1,0 +1,41 @@
+---
+interface Props {
+	bullets: string[];
+    type: 'circle' | 'square';
+    className?: string;
+    title?: string;
+}
+
+
+const { bullets, type, className, title } = Astro.props;
+
+---
+{title && <p class="root">{title}</p>}
+{bullets.length > 0 &&
+    <div class={className ?  className + " bullets" : "bullets"}>
+        {
+            bullets.map(bullet => (
+                <p class={type + " bullet root"}>{bullet}</p>
+            ))
+        }
+    </div>
+}
+<style>
+    .root {
+        color: #3f1a05;
+    }
+
+    .bullets {
+        display: flex;
+    }
+
+    .bullet {
+        border: 1px solid #000;
+        padding: 0px 10px 2px 10px;
+        margin-right: 8px;
+    }
+
+    .circle {
+        border-radius: 60px;
+    }
+</style>

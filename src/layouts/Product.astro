@@ -3,11 +3,12 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/HeaderInverted.astro';
 import Footer from '../components/Footer.astro';
+import Bullets from '../components/Bullets.astro';
 import {BASE_URL_PREFIX} from '../consts';
 
 type Props = CollectionEntry<'products'>['data'];
 
-const { title, description, heroImage, who, when, how, ingridients, table, ozonLink } = Astro.props;
+const { title, description, heroImage, who, when, how, ingridients, table, ozonLink, bullets } = Astro.props;
 
 ---
 
@@ -25,6 +26,8 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 					<div class="mobile">
 						<h1>{title}</h1>
 						<p>{description}</p>
+						<Bullets title='Вкусы' bullets={bullets} type='square'/>
+						<Bullets title='Количество' bullets={bullets} type='square'/>
 						<div class="buyLink">
 							<a class="ozonLink" href={ozonLink}>
 								купить на озон
@@ -67,6 +70,8 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 				<div class="desktop meaning column info">
 					<h1>{title}</h1>
 					<p>{description}</p>
+					<Bullets title='Вкусы' bullets={bullets} type='square'/>
+					<Bullets title='Количество' bullets={bullets} type='square'/>
 					<div class="buyLink">
 						<a class="ozonLink" href={ozonLink}>
 							купить на озон
