@@ -8,15 +8,17 @@ import {BASE_URL_PREFIX} from '../consts';
 
 type Props = CollectionEntry<'products'>['data'];
 
-const { title, description, heroImage, who, when, how, ingridients, table, ozonLink, bullets } = Astro.props;
+const {
+	title, description, heroImage, who,
+	when, how, ingridients, table, ozonLink,
+	bullets, quants, flavors
+} = Astro.props;
 
 ---
-
 <html lang="ru">
 	<head>
 		<BaseHead title={title} description={description} />
 	</head>
-
 	<body>
 		<Header />
 		<main class="main">
@@ -25,10 +27,10 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 					<img src={`${BASE_URL_PREFIX}/${heroImage}`} />
 					<div class="mobile">
 						<h1>{title}</h1>
-						<Bullets bullets={bullets} type='circle'/>
+						<Bullets class='bulletsSecond' bullets={bullets} type='circle'/>
 						<p>{description}</p>
-						<Bullets title='Вкусы' bullets={bullets} type='square'/>
-						<Bullets title='Количество' bullets={bullets} type='square'/>
+						<Bullets title='Вкусы' bullets={flavors} type='square'/>
+						<Bullets class='bulletsSecond' title='Количество' bullets={quants} type='square'/>
 						<div class="buyLink">
 							<a class="ozonLink" href={ozonLink}>
 								купить на озон
@@ -70,10 +72,10 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 				</div>
 				<div class="desktop meaning column info">
 					<h1>{title}</h1>
-					<Bullets bullets={bullets} type='circle'/>
+					<Bullets class='bulletsSecond' bullets={bullets} type='circle'/>
 					<p>{description}</p>
-					<Bullets title='Вкусы' bullets={bullets} type='square'/>
-					<Bullets title='Количество' bullets={bullets} type='square'/>
+					<Bullets title='Вкусы' bullets={flavors} type='square'/>
+					<Bullets class='bulletsSecond' title='Количество' bullets={quants} type='square'/>
 					<div class="buyLink">
 						<a class="ozonLink" href={ozonLink}>
 							купить на озон
@@ -97,6 +99,10 @@ const { title, description, heroImage, who, when, how, ingridients, table, ozonL
 			line-height: 87%;
 			letter-spacing: -0.03em;
 			color: #3f1a05;
+		}
+
+		.bulletsSecond {
+			margin-top: 26px;
 		}
 
 		.ozonLink {

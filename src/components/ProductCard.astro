@@ -15,7 +15,7 @@ const { id, heroImage, title, description, bullets} = Astro.props;
 
 <div class="main">
     <img src={`${BASE_URL_PREFIX}/${heroImage}`}/>
-    <Bullets className='bullets' bullets={bullets} type='circle'/>
+    <Bullets class='bullets' bullets={bullets} type='circle'/>
     <h1 class="title">{title}</h1>
     <p class="text">{description}</p>
     <a class="infoButton" href={`${BASE_URL_PREFIX}/product/${id}`}>

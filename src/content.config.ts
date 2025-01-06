@@ -8,6 +8,8 @@ const products = defineCollection({
 	schema: z.object({
 		id: z.string(),
 		bullets: z.array(z.string()),
+		flavors: z.array(z.string()),
+		quants: z.array(z.string()),
 		title: z.string(),
 		who: z.string(),
 		when: z.string(),
