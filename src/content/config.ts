@@ -26,11 +26,7 @@ const articles = defineCollection({
     title: z.string(),
     description: z.string(),
     tags: z.array(z.string()),
-    image: z.object({
-      src: z.string(),
-      alt: z.string(),
-    }),
-    publishDate: z.date().optional(),
+    heroImage: z.string(),
   }),
 });
 

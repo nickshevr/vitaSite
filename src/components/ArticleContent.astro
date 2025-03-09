@@ -1,6 +1,4 @@
 ---
-import ArticleTags from './ArticleTags.astro';
-
 interface Props {
   title: string;
   tags: string[];
@@ -15,8 +13,6 @@ const { title, tags, layout = 'title-text', image } = Astro.props;
 ---
 
 <article class="article">
-  <ArticleTags tags={tags} />
-
   <div class={`content-grid ${layout}`}>
     {layout === 'title-text-image' && (
       <>

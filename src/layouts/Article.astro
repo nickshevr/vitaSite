@@ -5,10 +5,11 @@ import Header from '../components/HeaderInverted.astro';
 import Footer from '../components/Footer.astro';
 import Bullets from '../components/Bullets.astro';
 import BuyNow from '../components/BuyNow.astro';
+import {BASE_URL_PREFIX} from '../consts';
 
 type Props = CollectionEntry<'articles'>['data'];
 
-const { title, description = '', tags, image } = Astro.props;
+const { title, description = '', tags, heroImage } = Astro.props;
 ---
 
 <html lang="ru">
@@ -18,31 +19,19 @@ const { title, description = '', tags, image } = Astro.props;
   <body>
     <Header />
     <main class="main">
-      <div class="row">
-        <div class="column">
-          {image && (
-            <div class="image-container">
-              <img src={image.src} alt={image.alt} />
+        <Bullets bullets={tags} type='circle' />
+        <div class="row">
+            <div class="column title-column">
+                <h1>{title}</h1>
+                {description && <p class="description">{description}</p>}
             </div>
-          )}
-          <div class="mobile">
-            <Bullets bullets={tags} type='circle' />
-            <h1>{title}</h1>
-            {description && <p class="description">{description}</p>}
-            <div class="content">
-              <slot />
+            <div class="column content-column">
+                <img src={`${BASE_URL_PREFIX}/${heroImage}`} />
             </div>
-          </div>
         </div>
-        <div class="desktop column info">
-          <Bullets bullets={tags} type='circle' />
-          <h1>{title}</h1>
-          {description && <p class="description">{description}</p>}
-          <div class="content">
+        <div class="content">
             <slot />
-          </div>
         </div>
-      </div>
     </main>
     <BuyNow />
     <Footer />
@@ -53,37 +42,27 @@ const { title, description = '', tags, image } = Astro.props;
   .main {
     margin-top: 20px;
     padding: 0 20px;
+    max-width: 1520px;
+    margin: 0 auto;
   }
 
   .row {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     width: 100%;
   }
 
   .column {
     display: flex;
     flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
   }
 
-  .info {
-    margin-left: 20px;
-    flex: 0.35;
+  .title-column {
+    flex: 0.4;
   }
 
-  .image-container {
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .image-container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  .content-column {
+    flex: 0.6;
   }
 
   h1 {
@@ -92,12 +71,13 @@ const { title, description = '', tags, image } = Astro.props;
     line-height: 87%;
     letter-spacing: -0.03em;
     color: #3f1a05;
+    margin-top: 1rem;
   }
 
   p {
     font-weight: 400;
     font-size: 16px;
-    color: #000;
+    color: #3f1a05;
   }
 
   .description {
@@ -133,26 +113,20 @@ const { title, description = '', tags, image } = Astro.props;
     margin-bottom: 0.5rem;
   }
 
-  .desktop {
-    display: none;
-  }
-
-  .mobile {
-    margin-top: 15px;
-  }
-
   @media (min-width: 720px) {
     .main {
-      max-width: 1520px;
       padding: 0 60px;
     }
 
-    .desktop {
-      display: block;
+    .row {
+      flex-direction: row;
+      gap: 4rem;
     }
+  }
 
-    .mobile {
-      display: none;
+  @media (max-width: 720px) {
+    .title-column, .content-column {
+      width: 100%;
     }
   }
 </style>
