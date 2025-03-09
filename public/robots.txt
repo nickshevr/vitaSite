@@ -1,0 +1,24 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location (assuming it will be generated)
+Sitemap: https://mybuddy.ru/sitemap.xml
+
+# Common directories and files that should be crawled
+Allow: /articles/
+Allow: /products/
+Allow: /images/
+
+# Prevent crawling of potential development/system files
+Disallow: /api/
+Disallow: /.env
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /dist/
+Disallow: /build/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.md$
