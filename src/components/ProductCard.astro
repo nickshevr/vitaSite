@@ -3,14 +3,14 @@ interface Props {
 	heroImage: string;
     title: string;
     bullets: string[];
-    id: string;
+    slug: string;
     description: string;
 }
 
 import {BASE_URL_PREFIX} from '../consts';
 import Bullets from './Bullets.astro';
 
-const { id, heroImage, title, description, bullets} = Astro.props;
+const { slug, heroImage, title, description, bullets} = Astro.props;
 ---
 
 <div class="main">
@@ -18,7 +18,7 @@ const { id, heroImage, title, description, bullets} = Astro.props;
     <Bullets class='bullets' bullets={bullets} type='circle'/>
     <h1 class="title">{title}</h1>
     <p class="text">{description}</p>
-    <a class="infoButton" href={`${BASE_URL_PREFIX}/product/${id}`}>
+    <a class="infoButton" href={`${BASE_URL_PREFIX}/products/${slug}`}>
         <p class="centered info subTitle">Подробнее</p>
     </a>
 </div>

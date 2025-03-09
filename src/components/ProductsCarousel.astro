@@ -7,7 +7,7 @@ const products = await getCollection('products');
 <div class="products">
     {
         products.map(product => (
-            <ProductCard {...product.data} />
+            <ProductCard {...product.data} slug={product.slug} />
         ))
     }
 </div>

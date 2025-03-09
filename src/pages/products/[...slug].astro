@@ -6,14 +6,14 @@ import { render } from 'astro:content';
 export async function getStaticPaths() {
 	const products = await getCollection('products');
 	return products.map((product) => ({
-		params: { slug: product.id },
+		params: { slug: product.slug },
 		props: product,
 	}));
 }
 type Props = CollectionEntry<'products'>;
 
 const post = Astro.props;
-const { Content } = await render(post);
+const { Content } = await post.render();
 ---
 
 <Product {...post.data}>
