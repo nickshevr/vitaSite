@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location (assuming it will be generated)
-Sitemap: https://mybuddy.ru/sitemap.xml
+Sitemap: https://mybuddy.ru/sitemap-index.xml
 
 # Common directories and files that should be crawled
 Allow: /articles/

@@ -8,6 +8,6 @@ export default defineConfig({
 	prefetch: {
 		defaultStrategy: 'viewport'
 	},
-	site: 'https://mybuddy.website.yandexcloud.net',
+	site: 'https://mybuddy.ru',
 	integrations: [mdx(), sitemap()],
 });
