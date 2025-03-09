@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import ArticleCard from './ArticleCard.astro';
+
+const articles: CollectionEntry<'articles'>[] = await getCollection('articles');
+---
+<div class="articles">
+    {
+        articles.map(article => (
+            <ArticleCard {...article.data} slug={article.slug} />
+        ))
+    }
+</div>
+<style>
+    .articles {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (min-width: 720px) {
+        .articles {
+            margin-top: 80px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+    }
+</style>

@@ -1,0 +1,89 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import ArticlesCarousel from '../components/ArticlesCarousel.astro';
+import Header from '../components/HeaderInverted.astro';
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="ru">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main class="main">
+            <div class="textInfo">
+                <h2 class="title titleContent">База знаний</h2>
+                <p class="subtitleContent text">Полезные статьи о здоровом образе жизни, правильном питании и биохакинге.
+                    Узнайте, как улучшить свое самочувствие и поддерживать здоровье естественным путем.</p>
+            </div>
+            <ArticlesCarousel />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    .textInfo {
+        padding: 0 20px;
+    }
+
+    @media (min-width: 720px) {
+        .main {
+            max-width: 1520px;
+            margin: 0 auto;
+        }
+
+        .textInfo {
+            padding: 0 60px;
+        }
+    }
+
+    .titleContent {
+        margin-top: 70px;
+    }
+
+    .subtitleContent {
+        margin-top: 35px;
+    }
+
+    @media (min-width: 720px) {
+        .subtitleContent {
+            margin-top: 20px;
+        }
+    }
+
+    .title {
+        font-weight: 400;
+        font-size: 34px;
+        line-height: 94%;
+        letter-spacing: -0.04em;
+        text-align: left;
+        color: #3F1A05;
+    }
+
+    .text {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 100%;
+        text-align: left;
+        color: #3F1A05;
+    }
+
+    @media (min-width: 720px) {
+        .title {
+            font-weight: 400;
+            font-size: 64px;
+            line-height: 87%;
+            letter-spacing: -0.04em;
+        }
+
+        .text {
+            font-size: 20px;
+            line-height: 105%;
+        }
+    }
+</style>

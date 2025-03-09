@@ -1,0 +1,76 @@
+---
+interface Props {
+    heroImage: string;
+    title: string;
+    tags: string[];
+    slug: string;
+    description: string;
+}
+
+import {BASE_URL_PREFIX} from '../consts';
+import Bullets from './Bullets.astro';
+
+const { slug, heroImage, title, description, tags } = Astro.props;
+---
+
+<div class="main">
+    <img src={`${BASE_URL_PREFIX}/${heroImage}`}/>
+    <Bullets class='bullets' bullets={tags} type='circle'/>
+    <h1 class="title">{title}</h1>
+    <p class="text">{description}</p>
+    <a class="infoButton" href={`${BASE_URL_PREFIX}/articles/${slug}`}>
+        <p class="centered info subTitle">Читать далее</p>
+    </a>
+</div>
+<style>
+    .main {
+        margin-top: 20px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        color: #381e12;
+    }
+
+    .infoButton {
+        margin-top: 32px;
+    }
+
+    @media (min-width: 720px) {
+        .main {
+            width: 45%;
+        }
+    }
+
+    .centered {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .title {
+        margin-top: 15px;
+        font-weight: 400;
+        font-size: 46px;
+        line-height: 100%;
+        letter-spacing: -0.04em;
+        color: #3f1a05;
+    }
+    .subTitle {
+        color: #000;
+        font-size: 22px;
+    }
+    .text {
+        font-weight: 400;
+        font-size: 16px;
+        color: #000;
+    }
+    .info {
+        padding: 5px 40px;
+        border: 2px solid #381e12;
+    }
+
+    .bullets {
+        margin-top: 20px;
+    }
+</style>
