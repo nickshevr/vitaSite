@@ -5,27 +5,38 @@ import ArticleCard from './ArticleCard.astro';
 
 const articles: CollectionEntry<'articles'>[] = await getCollection('articles');
 ---
-<div class="articles">
-    {
-        articles.map(article => (
-            <ArticleCard {...article.data} slug={article.slug} />
-        ))
-    }
+<div class="articles-container">
+    <div class="articles">
+        {
+            articles.map(article => (
+                <ArticleCard {...article.data} slug={article.slug} />
+            ))
+        }
+    </div>
 </div>
 <style>
+    .articles-container {
+        padding: 0 20px;
+        margin-top: 40px;
+    }
+
     .articles {
-        margin-top: 10px;
         display: flex;
         flex-direction: column;
+        gap: 60px;
     }
 
     @media (min-width: 720px) {
-        .articles {
+        .articles-container {
+            padding: 0 60px;
             margin-top: 80px;
+        }
+
+        .articles {
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-between;
             gap: 40px;
+            justify-content: flex-start;
         }
     }
 </style>
