@@ -16,11 +16,11 @@ jobs:
         run: npm ci
       - name: Build application
         run: npm run build
-      - uses: MrMeison/yc-object-storage-action@main
+      - uses: MrMeison/yc-object-storage-action@1.2.1
         with:
           accessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           bucketName: ${{ secrets.BUCKET_ID }}
           sourceDir: ./dist
-          clear: false
+          clear: true
           includeDots: false
