@@ -22,5 +22,5 @@ jobs:
           secretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           bucketName: ${{ secrets.BUCKET_ID }}
           sourceDir: ./dist
-          clear: true
+          clear: false
           includeDots: false
