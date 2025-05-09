@@ -15,6 +15,24 @@
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
+
+	/* Typography variables based on MOBILE FIRST design system */
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
+
+	--font-size-h1: 3rem;      /* 48px */
+	--font-size-h2: 2.5rem;    /* 40px */
+	--font-size-h3: 2rem;      /* 32px */
+	--font-size-h4: 1.5rem;    /* 24px */
+	--font-size-body: 1rem;    /* 16px */
+
+	--line-height-tight: 1.25;
+	--line-height-normal: 1.5;
+	--line-height-relaxed: 1.75;
+
+	--letter-spacing-normal: 0;
+	--letter-spacing-button: 0.02em; /* 2% */
 }
 @font-face {
 	font-family: 'Secretary';
@@ -60,30 +78,84 @@ body {
 main {
 	margin: auto;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Typography styles based on MOBILE FIRST design system */
+h1 {
 	font-family: 'Secretary', sans-serif;
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-h1);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-normal);
 	margin: 0 0 0.5rem 0;
 	color: var(--main);
-	line-height: 1.2;
+}
+
+h2 {
+	font-family: 'Secretary', sans-serif;
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-h2);
+	line-height: var(--line-height-normal);
+	letter-spacing: var(--letter-spacing-normal);
+	margin: 0 0 0.5rem 0;
+	color: var(--main);
+}
+
+h3 {
+	font-family: 'Secretary', sans-serif;
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-h3);
+	line-height: var(--line-height-normal);
+	letter-spacing: var(--letter-spacing-normal);
+	margin: 0 0 0.5rem 0;
+	color: var(--main);
+}
+
+h4, h5, h6 {
+	font-family: 'Secretary', sans-serif;
+	font-weight: var(--font-weight-medium);
+	font-size: var(--font-size-h4);
+	line-height: var(--line-height-normal);
+	letter-spacing: var(--letter-spacing-normal);
+	margin: 0 0 0.5rem 0;
+	color: var(--main);
 }
 strong,
 b {
 	font-weight: 700;
 }
+/* Link styles */
 a {
+	font-family: 'Juneau', sans-serif;
+	font-weight: var(--font-weight-medium);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-normal);
 	color: var(--main);
 	text-decoration: none;
 }
+
 a:hover {
 	color: var(--main);
 }
+
+/* Body text styles */
 p {
 	font-family: 'Juneau', sans-serif;
+}
+
+.body1 {
+	font-family: 'Juneau', sans-serif;
+	font-weight: var(--font-weight-regular);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-relaxed);
+	letter-spacing: var(--letter-spacing-normal);
+}
+
+.body2 {
+	font-family: 'Juneau', sans-serif;
+	font-weight: var(--font-weight-medium);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-relaxed);
+	letter-spacing: var(--letter-spacing-normal);
 }
 .prose p {
 	margin-bottom: 2em;
@@ -123,6 +195,36 @@ hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
 }
+/* Button styles */
+button, .button {
+	font-family: 'Juneau', sans-serif;
+	font-weight: var(--font-weight-medium);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-normal);
+	letter-spacing: var(--letter-spacing-button);
+	padding: 0.75rem 1.5rem;
+	cursor: pointer;
+	border: none;
+	border-radius: 4px;
+	background-color: var(--accent);
+	color: var(--main);
+	transition: background-color 0.3s ease;
+}
+
+button:hover, .button:hover {
+	background-color: var(--accent-dark);
+}
+
+/* Caption styles */
+.caption {
+	font-family: 'Juneau', sans-serif;
+	font-weight: var(--font-weight-medium);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-normal);
+	letter-spacing: var(--letter-spacing-normal);
+	color: rgba(var(--gray), 0.8);
+}
+
 @media (min-width: 720px) {
 	body {
 		font-size: 18px;
