@@ -4,7 +4,8 @@ import {BASE_URL_PREFIX} from '../consts';
 
 <header>
 	<nav>
-		<div class="menu">
+		<div class="menu_wrapper">
+			<div class="menu">
 			<a href={Astro.site}>
 				<svg class="logo" width="173" height="42" viewBox="0 0 173 42" fill="#3F1A05" xmlns="http://www.w3.org/2000/svg">
 					<path d="M158.378 41.0675L161.208 31.4626H157.863L152.246 10.1946L158.635 10.1946L162.709 26.2313H162.794L166.825 10.1946L173 10.1946L164.81 41.0675H158.378Z" />
@@ -23,6 +24,7 @@ import {BASE_URL_PREFIX} from '../consts';
 				<p class="invertedLink" >База знаний</p>
 			</a>
 		</div>
+		</div>
 		<div class="line" />
 	</nav>
 </header>
@@ -30,6 +32,10 @@ import {BASE_URL_PREFIX} from '../consts';
 	header {
 		margin: 0;
 		background: transparent;
+	}
+
+	.menu_wrapper {
+		max-width: 500px;
 	}
 
 	.logo {
@@ -40,12 +46,12 @@ import {BASE_URL_PREFIX} from '../consts';
 		padding: 4px 16px;
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 	}
 
 	.invertedLink {
 		font-size: 16px;
 		padding: 2px;
-		margin-left: 27px;
 		background: #3f1a05;
 	}
 
@@ -64,7 +70,6 @@ import {BASE_URL_PREFIX} from '../consts';
 		.invertedLink {
 			font-size: 18px;
 			padding: 0px 10px;
-			margin-left: 27px;
 			background: #3f1a05;
 		}
 	}
