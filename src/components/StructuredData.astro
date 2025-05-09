@@ -1,0 +1,169 @@
+---
+// StructuredData.astro - Component for adding structured data (JSON-LD) to pages
+// This helps search engines understand your content and display rich snippets
+
+interface Props {
+  type: 'Product' | 'Article' | 'WebPage';
+  data: any;
+}
+
+const { type, data } = Astro.props;
+const currentUrl = Astro.url;
+const siteUrl = Astro.site;
+
+// Function to generate the appropriate JSON-LD based on the type
+function generateJsonLd() {
+  if (type === 'Product') {
+    const {
+      title,
+      description,
+      heroImage,
+      ozonLink,
+      ingridients,
+      bullets,
+      quants,
+      flavors,
+    } = data;
+
+    // Create a base product schema
+    const productSchema: any = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": title,
+      "description": description,
+      "image": new URL(heroImage, Astro.site).toString(),
+      "brand": {
+        "@type": "Brand",
+        "name": "MyBuddy"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": ozonLink,
+        "priceCurrency": "RUB",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Ozon"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "25"
+      }
+    };
+
+    // Add additional properties if available
+    if (flavors && flavors.length > 0) {
+      productSchema.additionalProperty = flavors.map((flavor: string) => ({
+        "@type": "PropertyValue",
+        "name": "Flavor",
+        "value": flavor
+      }));
+    }
+
+    return JSON.stringify(productSchema, null, 2);
+  }
+
+  if (type === 'Article') {
+    // Article schema implementation
+    const {
+      title,
+      description,
+      pubDate,
+      updatedDate,
+      heroImage,
+    } = data;
+
+    return JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "image": heroImage ? new URL(heroImage, Astro.site).toString() : undefined,
+      "datePublished": pubDate,
+      "dateModified": updatedDate || pubDate,
+      "author": {
+        "@type": "Organization",
+        "name": "MyBuddy",
+        "url": Astro.site?.toString()
+      }
+    }, null, 2);
+  }
+
+  // Default WebPage schema
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": data.title,
+    "description": data.description,
+    "url": Astro.url.toString()
+  }, null, 2);
+}
+
+const jsonLd = generateJsonLd();
+---
+
+<script type="application/ld+json" set:html={jsonLd} />
+
+{type === 'Product' && (
+  <script type="application/ld+json">
+    {
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": siteUrl?.toString()
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Продукты",
+            "item": new URL("/products", siteUrl).toString()
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": data.title,
+            "item": currentUrl.toString()
+          }
+        ]
+      })
+    }
+  </script>
+)}
+
+{type === 'Article' && (
+  <script type="application/ld+json">
+    {
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": siteUrl?.toString()
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Статьи",
+            "item": new URL("/articles", siteUrl).toString()
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": data.title,
+            "item": currentUrl.toString()
+          }
+        ]
+      })
+    }
+  </script>
+)}

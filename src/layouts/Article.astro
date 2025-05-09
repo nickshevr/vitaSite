@@ -5,6 +5,7 @@ import Header from '../components/HeaderInverted.astro';
 import Footer from '../components/Footer.astro';
 import Bullets from '../components/Bullets.astro';
 import BuyNow from '../components/BuyNow.astro';
+import StructuredData from '../components/StructuredData.astro';
 import {BASE_URL_PREFIX} from '../consts';
 
 type Props = CollectionEntry<'articles'>['data'];
@@ -15,6 +16,16 @@ const { title, description = '', tags, heroImage } = Astro.props;
 <html lang="ru">
   <head>
     <BaseHead title={title} description={description} />
+    <StructuredData
+      type="Article"
+      data={{
+        title,
+        description,
+        heroImage,
+        pubDate: new Date().toISOString(), // Since we don't have actual pubDate, use current date
+        tags
+      }}
+    />
   </head>
   <body>
     <Header />
