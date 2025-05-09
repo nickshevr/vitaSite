@@ -13,22 +13,36 @@ import Bullets from './Bullets.astro';
 const { slug, heroImage, title, description, bullets} = Astro.props;
 ---
 
-<div class="main">
-    <img src={`${BASE_URL_PREFIX}/${heroImage}`}/>
-    <Bullets class='bullets' bullets={bullets} type='circle'/>
-    <h1 class="title">{title}</h1>
-    <p class="text">{description}</p>
-    <a class="infoButton" href={`${BASE_URL_PREFIX}/products/${slug}`}>
-        <p class="centered info subTitle">Подробнее</p>
-    </a>
-</div>
+<a href={`${BASE_URL_PREFIX}/products/${slug}`} class="card-link">
+    <div class="main">
+        <img src={`${BASE_URL_PREFIX}/${heroImage}`}/>
+        <Bullets class='bullets' bullets={bullets} type='circle'/>
+        <h1 class="title">{title}</h1>
+        <p class="text">{description}</p>
+        <div class="infoButton">
+            <p class="centered info subTitle">Подробнее</p>
+        </div>
+    </div>
+</a>
 <style>
+    .card-link {
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card-link:hover {
+        transform: translateY(-5px);
+    }
+
     .main {
         margin-top: 20px;
         padding: 0 20px;
         display: flex;
         flex-direction: column;
         color: #381e12;
+        width: 100%;
     }
 
     .infoButton {
@@ -36,9 +50,13 @@ const { slug, heroImage, title, description, bullets} = Astro.props;
     }
 
     @media (min-width: 720px) {
-        .main {
+        .card-link {
             width: 45%;
-	    }
+        }
+
+        .main {
+            width: 100%;
+        }
     }
 
     .centered {
