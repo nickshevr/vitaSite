@@ -107,63 +107,55 @@ const jsonLd = generateJsonLd();
 <script type="application/ld+json" set:html={jsonLd} />
 
 {type === 'Product' && (
-  <script type="application/ld+json">
-    {
-      JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Главная",
-            "item": siteUrl?.toString()
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Продукты",
-            "item": new URL("/products", siteUrl).toString()
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": data.title,
-            "item": currentUrl.toString()
-          }
-        ]
-      })
-    }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": siteUrl?.toString()
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Продукты",
+        "item": new URL("/products", siteUrl).toString()
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": data.title,
+        "item": currentUrl.toString()
+      }
+    ]
+  }, null, 2)} />
 )}
 
 {type === 'Article' && (
-  <script type="application/ld+json">
-    {
-      JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Главная",
-            "item": siteUrl?.toString()
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Статьи",
-            "item": new URL("/articles", siteUrl).toString()
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": data.title,
-            "item": currentUrl.toString()
-          }
-        ]
-      })
-    }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": siteUrl?.toString()
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Статьи",
+        "item": new URL("/articles", siteUrl).toString()
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": data.title,
+        "item": currentUrl.toString()
+      }
+    ]
+  }, null, 2)} />
 )}
