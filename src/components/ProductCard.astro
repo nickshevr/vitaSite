@@ -25,11 +25,16 @@ const { slug, heroImage, title, description, bullets} = Astro.props;
     </div>
 </a>
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     .card-link {
         text-decoration: none;
         display: block;
         cursor: pointer;
         transition: transform 0.2s ease-in-out;
+        width: 100%;
     }
 
     .card-link:hover {
@@ -42,7 +47,6 @@ const { slug, heroImage, title, description, bullets} = Astro.props;
         display: flex;
         flex-direction: column;
         color: #381e12;
-        width: 100%;
     }
 
     .infoButton {
@@ -52,10 +56,6 @@ const { slug, heroImage, title, description, bullets} = Astro.props;
     @media (min-width: 720px) {
         .card-link {
             width: 45%;
-        }
-
-        .main {
-            width: 100%;
         }
     }
 
