@@ -127,7 +127,7 @@ const jsonLd = generateJsonLd();
         "@type": "ListItem",
         "position": 3,
         "name": data.title,
-        "item": currentUrl.toString()
+        "item": new URL(`/products/${data.id}`, siteUrl).toString()
       }
     ]
   }, null, 2)} />
