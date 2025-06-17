@@ -1,5 +1,5 @@
 ---
-id: 'tovar1'
+id: 'kollagen-zhidkiy-v-shotah-s-kofaktorami-mybuddy-15-individualnyh-ampul-po-25-ml'
 title: 'Collagen'
 description: 'Жидкий коллаген в индивидуальных ампулах — маленькая, но вкусная инвестиция в красоту и молодость. Гидролизованный коллаген лучше усваивается и быстрее достигает кожи, суставов, волос и ногтей, поддерживая их здоровье.'
 ozonLink: 'https://ozon.onelink.me/SNMZ/hghzhk5h'
