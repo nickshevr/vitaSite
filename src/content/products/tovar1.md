@@ -1,5 +1,5 @@
 ---
-id: 'tovar1'
+id: 'kollagen-zhidkiy-v-shotah-s-kofaktorami-mybuddy-15-individualnyh-ampul-po-25-ml'
 title: 'Energy Booster'
 description: 'Этот комплекс содержит аминокислоты, минералы и витамины, которые помогут справляться со стрессом, поддерживать продуктивность и оставаться бодрым. Можно использовать как предтренировочный комплекс.'
 ozonLink: 'https://ozon.onelink.me/SNMZ/gwd9z35b'
