@@ -142,6 +142,10 @@ p {
 	font-family: 'Juneau', sans-serif;
 }
 
+li {
+	font-family: 'Juneau', sans-serif;
+}
+
 .body1 {
 	font-family: 'Juneau', sans-serif;
 	font-weight: var(--font-weight-regular);
