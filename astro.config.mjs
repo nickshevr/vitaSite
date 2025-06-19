@@ -9,5 +9,14 @@ export default defineConfig({
 		defaultStrategy: 'viewport'
 	},
 	site: 'https://mybuddy.ru',
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({
+			// Настройки для sitemap
+			filter: (page) => {
+				// Исключаем RSS feed из sitemap
+				return !page.includes('rss.xml');
+			},
+		})
+	],
 });
