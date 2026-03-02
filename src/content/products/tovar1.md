@@ -1,6 +1,6 @@
 ---
 id: 'kompleks-dlya-bodrosti-i-produktivnosti-v-sashe-mybuddy-energy-booster-predtren'
-title: 'Energy Booster'
+title: 'Энерго Комплекс'
 description: 'Этот комплекс содержит аминокислоты, минералы и витамины, которые помогут справляться со стрессом, поддерживать продуктивность и оставаться бодрым. Можно использовать как предтренировочный комплекс.'
 ozonLink: 'https://ozon.onelink.me/SNMZ/gwd9z35b'
 who: 'Всем, кому нужно чуть больше энергии для грандиозных дел или ежедневной рутины.'
